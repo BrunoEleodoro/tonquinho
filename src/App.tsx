@@ -45,7 +45,7 @@ function App() {
         
         {wallet && (
           <div style={{ marginTop: '20px' }}>
-            <p>Connected wallet: {wallet.name}</p>
+            <p>Connected wallet: {wallet.device.appName}</p>
             <p>Address: {userFriendlyAddress}</p>
             <button onClick={sendTransaction} style={{ marginTop: '10px' }}>
               Send Test Transaction (0.02 TON)
