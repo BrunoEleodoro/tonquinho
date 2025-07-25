@@ -1,7 +1,7 @@
 {
-  "url": "https://tonquinho.vercel.app/",
-  "name": "Tonquinho",
+  "url": "https://tonquinho.vercel.app",
+  "name": "Tonquinho - TON Investment App",
   "iconUrl": "https://tonquinho.vercel.app/icon-192x192.png",
-  "termsOfUseUrl": "https://tonquinho.vercel.app/terms",
-  "privacyPolicyUrl": "https://tonquinho.vercel.app/privacy"
+  "termsOfUseUrl": "https://tonquinho.vercel.app",
+  "privacyPolicyUrl": "https://tonquinho.vercel.app"
 }
