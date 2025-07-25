@@ -5,7 +5,14 @@ import { Buffer } from 'buffer'
 import './index.css'
 import App from './App.tsx'
 
-;(window as any).Buffer = Buffer
+// Make Buffer available globally for TON Connect
+declare global {
+  interface Window {
+    Buffer: typeof Buffer
+  }
+}
+
+window.Buffer = Buffer
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

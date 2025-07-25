@@ -1,7 +1,7 @@
 {
-  "url": "https://your-app-url.com",
+  "url": "https://tonquinho.vercel.app/",
   "name": "Tonquinho",
-  "iconUrl": "https://your-app-url.com/icon-192x192.png",
-  "termsOfUseUrl": "https://your-app-url.com/terms",
-  "privacyPolicyUrl": "https://your-app-url.com/privacy"
+  "iconUrl": "https://tonquinho.vercel.app/icon-192x192.png",
+  "termsOfUseUrl": "https://tonquinho.vercel.app/terms",
+  "privacyPolicyUrl": "https://tonquinho.vercel.app/privacy"
 }

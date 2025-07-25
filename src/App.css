@@ -1,42 +1,307 @@
+body {
+  background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%);
+  color: #ffffff;
+  margin: 0;
+  font-family: 'Gluten', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%); }
+  50% { background: radial-gradient(circle at 50% 50%, #2a2a4e 0%, #1a1a2a 100%); }
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.balance-display {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.balance-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Gluten', system-ui, -apple-system, sans-serif;
+  color: #00ff88;
+  margin: 0;
+  text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+  animation: balanceBlink 2s ease-in-out infinite, balanceScale 3s ease-in-out infinite;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes balanceBlink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.7; }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+@keyframes balanceScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
+.balance-label {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Gluten', system-ui, -apple-system, sans-serif;
   color: #888;
+  margin: 0.5rem 0;
+  animation: labelFloat 4s ease-in-out infinite;
+}
+
+@keyframes labelFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.yield-info {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'Gluten', system-ui, -apple-system, sans-serif;
+  color: #ffd700;
+  text-shadow: 0 0 15px #ffd700;
+  animation: yieldGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes yieldGlow {
+  from { 
+    text-shadow: 0 0 15px #ffd700; 
+    transform: scale(1);
+  }
+  to { 
+    text-shadow: 0 0 25px #ffd700, 0 0 35px #ffd700; 
+    transform: scale(1.02);
+  }
+}
+
+.pig-container {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  animation: pigBreathe 4s ease-in-out infinite;
+}
+
+@keyframes pigBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.pig {
+  font-size: 8rem;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+  animation: pigGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pigGlow {
+  from { 
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+    transform: rotate(-2deg);
+  }
+  to { 
+    filter: drop-shadow(0 0 50px rgba(255, 182, 193, 0.6));
+    transform: rotate(2deg);
+  }
+}
+
+.pig:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.8));
+  animation: pigExcited 0.5s ease-in-out infinite;
+}
+
+@keyframes pigExcited {
+  0%, 100% { transform: scale(1.1) rotate(5deg); }
+  50% { transform: scale(1.15) rotate(-5deg); }
+}
+
+.pig.sad {
+  filter: hue-rotate(200deg) saturate(0.5) drop-shadow(0 0 40px rgba(100, 100, 255, 0.5));
+  animation: pigSadShake 1s ease-in-out infinite;
+}
+
+@keyframes pigSadShake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-3px) rotate(-1deg); }
+  75% { transform: translateX(3px) rotate(1deg); }
+}
+
+.coin {
+  position: absolute;
+  font-size: 2rem;
+  color: #ffd700;
+  z-index: 10;
+  filter: drop-shadow(0 0 20px #ffd700);
+  animation: coinSpin 0.5s linear infinite;
+}
+
+@keyframes coinSpin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.floating-particle {
+  position: absolute;
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sparkle {
+  position: absolute;
+  color: #fff;
+  font-size: 1.5rem;
+  animation: sparkleFloat 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 15;
+}
+
+@keyframes sparkleFloat {
+  0% { 
+    opacity: 0; 
+    transform: translateY(0px) scale(0.5); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateY(-30px) scale(1); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(-60px) scale(0.5); 
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Gluten', system-ui, -apple-system, sans-serif;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  position: relative;
+  overflow: hidden;
+  animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.btn:hover::before {
+  animation: shimmer 0.8s ease-in-out;
+  opacity: 1;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.btn-invest {
+  background: linear-gradient(135deg, #00ff88, #00cc6a);
+  color: #000;
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+  animation: investGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes investGlow {
+  from { 
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+    transform: scale(1);
+  }
+  to { 
+    box-shadow: 0 0 35px rgba(0, 255, 136, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+.btn-invest:hover {
+  background: linear-gradient(135deg, #00cc6a, #009955);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.6);
+  animation: investExcited 0.3s ease-in-out infinite;
+}
+
+@keyframes investExcited {
+  0%, 100% { transform: translateY(-5px) scale(1.05); }
+  50% { transform: translateY(-7px) scale(1.08); }
+}
+
+.btn-withdraw {
+  background: linear-gradient(135deg, #ff6b6b, #ee5555);
+  color: #fff;
+  box-shadow: 0 0 25px rgba(255, 107, 107, 0.4);
+  animation: withdrawGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes withdrawGlow {
+  from { 
+    box-shadow: 0 0 25px rgba(255, 107, 107, 0.4);
+    transform: scale(1);
+  }
+  to { 
+    box-shadow: 0 0 35px rgba(255, 107, 107, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+.btn-withdraw:hover {
+  background: linear-gradient(135deg, #ee5555, #dd4444);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.6);
+  animation: withdrawShake 0.3s ease-in-out infinite;
+}
+
+@keyframes withdrawShake {
+  0%, 100% { transform: translateY(-5px) scale(1.05) rotate(0deg); }
+  25% { transform: translateY(-5px) scale(1.05) rotate(-1deg); }
+  75% { transform: translateY(-5px) scale(1.05) rotate(1deg); }
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  animation: none !important;
+  box-shadow: none !important;
 }
