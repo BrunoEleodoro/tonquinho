@@ -16,7 +16,7 @@ window.Buffer = Buffer
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <TonConnectUIProvider manifestUrl="/tonconnect-manifest.json">
+    <TonConnectUIProvider manifestUrl="https://tonquinho.vercel.app/tonconnect-manifest.json">
       <App />
     </TonConnectUIProvider>
   </StrictMode>,
