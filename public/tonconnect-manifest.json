@@ -1,6 +1,6 @@
 {
-  "url": "https://tonquinho.vercel.app/tonconnect-manifest.json",
-  "name": "Tonquinho - TON Investment App",
+  "url": "https://tonquinho.vercel.app",
+  "name": "Tonquinho",
   "iconUrl": "https://tonquinho.vercel.app/icon-192x192.png",
   "termsOfUseUrl": "https://tonquinho.vercel.app",
   "privacyPolicyUrl": "https://tonquinho.vercel.app"
