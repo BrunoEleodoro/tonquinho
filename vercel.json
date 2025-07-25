@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!tonconnect-manifest\\.json|icon-192x192\\.png|.*\\.).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
